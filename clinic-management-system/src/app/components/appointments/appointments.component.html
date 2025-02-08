@@ -1,0 +1,23 @@
+<div>
+    <h2>Create Appointment</h2>
+    <form (ngSubmit)="createAppointment()">
+        <label for="date">Date:</label>
+        <input id="date" [(ngModel)]="newAppointment.date" name="date" required>
+        <label for="time">Time:</label>
+        <input id="time" [(ngModel)]="newAppointment.time" name="time" required>
+        <label for="patient">Patient:</label>
+        <input id="patient" [(ngModel)]="newAppointment.patient" name="patient" required>
+        <label for="reason">Reason:</label>
+        <input id="reason" [(ngModel)]="newAppointment.reason" name="reason" required>
+        <button type="submit">Create</button>
+    </form>
+</div>
+
+<div>
+    <h2>Appointments List</h2>
+    <ul>
+        <li *ngFor="let appointment of appointments">
+            {{ appointment.date }} - {{ appointment.time }} - {{ appointment.patient }} - {{ appointment.reason }}
+        </li>
+    </ul>
+</div>
