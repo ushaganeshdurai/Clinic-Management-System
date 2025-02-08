@@ -7,9 +7,12 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getFunctions, provideFunctions } from '@angular/fire/functions';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { environment } from './environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideFirebaseApp(() =>
